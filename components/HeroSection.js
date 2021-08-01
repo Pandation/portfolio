@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedText from "../components/AnimatedText";
+import {colors} from "../styles/theme.js"
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
         <div className="heroInfos">
           <p className="intro">Everything can be optimized</p>
           <p>Hi, I'm Florian Baumes</p>
-          <AnimatedText primaryText="Developer" color="rgb(223, 0, 223)">
+          <AnimatedText primaryText="Developer" color={colors.primary}>
             {["React.js", "Next.js", "Express.js", "React Native", "Fullstack"]}
           </AnimatedText>
           <p>based in Montpellier. (France)</p>
