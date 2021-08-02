@@ -1,6 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { colors } from "../styles/theme";
+import * as Content from "../content"
 
 const SkillCard = ({ logoSrc, title, children }) => {
   return (
@@ -72,38 +73,6 @@ const SkillCard = ({ logoSrc, title, children }) => {
   );
 };
 
-const config = {
-  en: {
-    skills: [
-      {
-        title: "HTML5",
-        paragraph: "Et oui je fais du HTML 5 :D",
-        logoUrl: "./france.svg",
-      },
-      {
-        title: "CSS3",
-        paragraph: "Et oui jeqsdqdqzdML 5 :D",
-        logoUrl: "./france.svg",
-      },
-      {
-        title: "React.js",
-        paragraph: "qsfkqufgiqudgidq:D",
-        logoUrl: "./france.svg",
-      },
-      {
-        title: "Next.js",
-        paragraph: "Lorem ipsum dolor e consectitur :D",
-        logoUrl: "./france.svg",
-      },
-      {
-        title: "C#",
-        paragraph: "J'ai appris le C#",
-        logoUrl: "./france.svg",
-      },
-    ],
-  },
-};
-
 const Skills = () => {
   const { ref, inView, entry } = useInView({
     threshold: 0.1,
@@ -117,7 +86,7 @@ const Skills = () => {
           <h1>My Skills</h1>
           <p>Fullstack, I can create everything you want !</p>
           <div className="grid">
-            {config.en.skills.map((item) => {
+            {Content["en"].skills.map((item) => {
               return (
                 <SkillCard
                   key={item.title}

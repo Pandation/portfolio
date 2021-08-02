@@ -1,27 +1,131 @@
 import React from "react";
-import Link from "next/link";
 import { colors } from "../styles/theme";
+import Flippy, { FrontSide, BackSide } from "react-flippy";
 
+const FrontCard = ({ title, status, background }) => {
+  return (
+    <>
+      <FrontSide>
+        <div className="container">
+          <div className="projectScreenshot">
+            <img src={background} alt={`screenshot of ${title}`} />
+          </div>
+          <div className="resume">
+            <h1>{title}</h1>
+            <p>{status}</p>
+          </div>
+        </div>
+      </FrontSide>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 10px;
+          background-image: linear-gradient(
+            to top left,
+            rgb(20, 20, 20),
+            ${colors.primary}
+          );
+        }
+        .projectScreenshot {
+          flex: 2.5;
+          > img {
+            max-width: 100%;
+          }
+        }
+        .resume {
+          flex: 1;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          > h1 {
+            margin: 0;
+            color: white;
+          }
+          > p {
+            margin: 0;
+            color: rgb(200, 200, 200);
+          }
+        }
+      `}</style>
+    </>
+  );
+};
+
+const BackCard = ({ title, stacks }) => {
+  return (
+    <>
+      <BackSide>
+        <div className="container">
+          <h1>Stacks</h1>
+          <ul>{stacks.map(stack => <li>{stack}</li>)}</ul>
+        </div>
+      </BackSide>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          padding: 15px;
+          overflow: hidden;
+          border-radius: 10px;
+          background-image: linear-gradient(to bottom, rgba(255,255,255,0.2),rgba(255,255,255,0.2)), linear-gradient(
+            to top left,
+            rgb(20, 20, 20),
+            ${colors.primary}
+          );;
+          border: inset 10px ${colors.primary};
+          > h1,
+          > h2 {
+            text-align: center;
+            width: 100%;
+            color: white;
+          }
+          > ul {
+            list-style-type: square;
+          color: rgb(235, 235, 235);
+            > li {
+              font-weight: 600;
+            }
+          }
+        }
+      `}</style>
+    </>
+  );
+};
 /**
- * @param {object} project Les donnees du projet à afficher 
+ * @param {object} project Les donnees du projet à afficher
  * @returns {ReactComponentElement} La carte du projet
  */
 function CardAlt({ project }) {
   return (
     <>
-      <Link href={project.url || "#"}>
-        <div className="card-grid-space" >
-          <div className="card">
-            <div>
-              <h1> {project.title}</h1>
-              <p
-                className="resume"
-              >{project.paragraph}</p>
-              <div className="date">{project.date}</div>
-            </div>
-          </div>
-        </div>
-      </Link>
+      {/* <Link href=""> */}
+      <Flippy
+        flipOnHover={true} // default false
+        flipOnClick={false} // default false
+        flipDirection="horizontal" // horizontal or vertical
+        style={{
+          width: "400px",
+          height: "350px",
+          borderRadius: "10px",
+          overflow: "hidden",
+        }} /// these are optional style, it is not necessary
+      >
+        <FrontCard
+          title={project.title}
+          status={project.status}
+          background={project.backgroundImg}
+        />
+        <BackCard title={project.title} stacks={project.stacks} />
+      </Flippy>
+      {/* </Link> */}
       <style jsx>
         {`
           a {
