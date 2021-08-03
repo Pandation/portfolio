@@ -1,6 +1,8 @@
 import React from "react";
 import { colors } from "../styles/theme";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
+import { langageCtx } from "../pages/_app";
+import { Content } from "../content";
 
 const FrontCard = ({ title, status, background }) => {
   return (
@@ -57,13 +59,15 @@ const FrontCard = ({ title, status, background }) => {
   );
 };
 
-const BackCard = ({ title, stacks }) => {
+const BackCard = ({ title, stacks , url}) => {
+  const [state] = React.useContext(langageCtx)
   return (
     <>
       <BackSide>
         <div className="container">
           <h1>Stacks</h1>
-          <ul>{stacks.map(stack => <li>{stack}</li>)}</ul>
+          <ul>{stacks.map(stack => <li key={stack}>{stack}</li>)}</ul>
+          {url!="" && <button><a href={url}>{Content[state].button}</a></button>}
         </div>
       </BackSide>
       <style jsx>{`
@@ -95,6 +99,21 @@ const BackCard = ({ title, stacks }) => {
             }
           }
         }
+        button {
+          border-radius: 20px;
+          border: solid 1px black;
+          background-color: black;
+          color: white;
+          transition: all .2s linear;
+          width: fit-content;
+          margin: auto;
+          padding: 7px;
+          font-size: 0.8em;
+          font-weight: bold;
+          &:hover {
+            background-color: ${colors.primary};
+          }
+        }
       `}</style>
     </>
   );
@@ -123,7 +142,7 @@ function CardAlt({ project }) {
           status={project.status}
           background={project.backgroundImg}
         />
-        <BackCard title={project.title} stacks={project.stacks} />
+        <BackCard title={project.title} url={project.url} stacks={project.stacks} />
       </Flippy>
       {/* </Link> */}
       <style jsx>

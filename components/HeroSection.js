@@ -1,18 +1,24 @@
 import React from "react";
 import AnimatedText from "../components/AnimatedText";
-import {colors} from "../styles/theme.js"
+import { colors } from "../styles/theme.js";
+import { Content } from "../content";
+import { langageCtx } from "../pages/_app";
 
 const HeroSection = () => {
+  const [state] = React.useContext(langageCtx);
   return (
     <>
       <div className="container">
         <div className="heroInfos">
-          <p className="intro">Everything can be optimized</p>
-          <p>Hi, I'm Florian Baumes</p>
-          <AnimatedText primaryText="Developer" color={colors.primary}>
-            {["React.js", "Next.js", "Express.js", "React Native", "Fullstack"]}
+          <p className="intro">{Content[state].layout.heroSection.creed}</p>
+          <p>{Content[state].layout.heroSection.firstLine}</p>
+          <AnimatedText
+            primaryText={Content[state].layout.heroSection.middle}
+            color={colors.primary}
+          >
+            {Content[state].layout.stacks}
           </AnimatedText>
-          <p>based in Montpellier. (France)</p>
+          <p>{Content[state].layout.heroSection.secondLine}</p>
         </div>
         <div className="heroImg">
           <img src="./circle-cropped.png" alt="Me" />

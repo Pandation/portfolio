@@ -1,9 +1,11 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import ProjectCard from "./ProjectCard"
-import * as Content from "../content"
+import {Content} from "../content"
+import { langageCtx } from "../pages/_app";
 
 const Portfolio = () => {
+  const [state] = React.useContext(langageCtx)
   const { ref, inView, entry } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -15,8 +17,8 @@ const Portfolio = () => {
         <div className={`container ${inView && "visible"}`}>
           <h1>Portfolio</h1>
           <div className="grid">
-            {Content["en"].projects.map((project, index) => {
-              return (<ProjectCard project={project} />);
+            {Content[state].projects.map((project, index) => {
+              return (<ProjectCard key={project.title}  project={project} />);
             })}
           </div>
         </div>
@@ -33,11 +35,11 @@ const Portfolio = () => {
           > .container {
             &.visible {
               opacity: 1;
-              transform: translateX(0%);
+              transform: translateY(0%);
             }
             transition: opacity 0.6s 0.1s linear, transform 0.3s linear;
             opacity: 0;
-            transform: translateX(-100%);
+            transform: translateY(100%);
             display: flex;
             flex-direction: column;
             width: 1280px;

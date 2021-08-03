@@ -1,17 +1,16 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { colors } from "../styles/theme";
-import * as Content from "../content"
+import { Content } from "../content";
+import { langageCtx } from "../pages/_app";
 
-const SkillCard = ({ logoSrc, title, children }) => {
+const SkillCard = ({ icon, title, children }) => {
   return (
     <>
       <div className="card">
         <div className="bgDark">
           <div className="cardContainer">
-            <div className="skillPicture">
-              <img src={logoSrc} alt={`${title} logo`} />
-            </div>
+            <div className="skillPicture">{icon}</div>
             <div className="skillTitle">{title}</div>
             <p className="skillInfos">{children}</p>
           </div>
@@ -25,7 +24,7 @@ const SkillCard = ({ logoSrc, title, children }) => {
             rgb(132, 0, 255)
           );
           border-radius: 10px;
-          height: 300px;
+          height: 350px;
           width: 350px;
           transition: transform 0.2s linear, background-image 0.3s linear;
           &:hover {
@@ -34,6 +33,9 @@ const SkillCard = ({ logoSrc, title, children }) => {
               background-color: rgba(0, 0, 0, 0);
               p {
                 color: white;
+              }
+              .skillPicture {
+                color: black;
               }
             }
           }
@@ -52,11 +54,10 @@ const SkillCard = ({ logoSrc, title, children }) => {
           }
         }
         .skillPicture {
-          flex: 3;
-          fill: rgb(223, 0, 223);
-          > img {
-            max-height: 75px;
-          }
+          flex: 1;
+          font-size: 2.2em;
+          transition: color 0.3s linear;
+          color: ${colors.primary};
         }
         .skillTitle {
           font-weight: 500;
@@ -66,6 +67,7 @@ const SkillCard = ({ logoSrc, title, children }) => {
         .skillInfos {
           transition: color 0.1s linear;
           flex: 2;
+          font-size: 0.9em;
           color: rgb(173, 173, 173);
         }
       `}</style>
@@ -74,6 +76,7 @@ const SkillCard = ({ logoSrc, title, children }) => {
 };
 
 const Skills = () => {
+  const [state] = React.useContext(langageCtx);
   const { ref, inView, entry } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -83,16 +86,11 @@ const Skills = () => {
     <>
       <section id="skills" ref={ref}>
         <div className={`container ${inView && "visible"}`}>
-          <h1>My Skills</h1>
-          <p>Fullstack, I can create everything you want !</p>
+          <h1>{Content[state].layout.menu.skills}</h1>
           <div className="grid">
-            {Content["en"].skills.map((item) => {
+            {Content[state].skills.map((item) => {
               return (
-                <SkillCard
-                  key={item.title}
-                  logoSrc={item.logoUrl}
-                  title={item.title}
-                >
+                <SkillCard key={item.title} icon={item.icon} title={item.title}>
                   {item.paragraph}
                 </SkillCard>
               );
@@ -108,6 +106,7 @@ const Skills = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+          overflow: hidden;
           padding-bottom: 100px;
           > .container {
             &.visible {
@@ -122,16 +121,13 @@ const Skills = () => {
             width: 1280px;
             height: 100%;
             align-items: center;
+            overflow: hidden;
           }
         }
         h1 {
           font-size: 55px;
           color: white;
-          margin: 0;
-          margin-top: 50px;
-        }
-        p {
-          margin-bottom: 50px;
+          margin: 50px auto;
         }
         .grid {
           gap: 25px;

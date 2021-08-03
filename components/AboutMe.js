@@ -1,9 +1,12 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { langageCtx } from "../pages/_app";
 import { colors } from "../styles/theme";
+import { Content } from "../content";
 
 const AboutMe = () => {
   const [index, setIndex] = React.useState(0);
+  const [state] = React.useContext(langageCtx);
   const { ref, inView, entry } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -43,7 +46,7 @@ const AboutMe = () => {
             </svg>
           </div>
           <div className="aboutContainer">
-            <h1>About Me</h1>
+            <h1>{Content[state].layout.menu.about}</h1>
             <div className="tabmenu">
               <nav>
                 <ul>
@@ -51,78 +54,54 @@ const AboutMe = () => {
                     className={index === 0 && "active"}
                     onClick={() => setIndex(0)}
                   >
-                    Myself
+                    {Content[state].layout.myself[0].title}
                   </li>
                   <li
                     className={index === 1 && "active"}
                     onClick={() => setIndex(1)}
                   >
-                    Experience
+                    {Content[state].layout.myself[1].title}
                   </li>
                   <li
                     className={index === 2 && "active"}
                     onClick={() => setIndex(2)}
                   >
-                    Education & Certifications
+                    {Content[state].layout.myself[2].title}
                   </li>
                 </ul>
               </nav>
               <div className="contentContainer">
                 {index === 0 && (
                   <div>
-                    <p>
-                      I'm a young student who wants to be a very competent
-                      fullstack developer! <br />
-                      <br />
-                      I'm just a "solving problem lover", that's why. To be
-                      rational and logical is my creed and I see myself just
-                      like my code : I can always improve myself and I will!
-                    </p>
-                    <p>
-                      Plus, I really enjoy working in a team and sharing ideas.
-                      <br />
-                      <br />
-                      In my experience, learning from each others points of view
-                      is a really great way to improve social and technical
-                      skills faster and better!
-                    </p>
+                    <p>{Content[state].layout.myself[0].content[0]}</p>
+                    <p>{Content[state].layout.myself[0].content[1]}</p>
                   </div>
                 )}
                 {index === 1 && (
                   <div>
                     <ul>
-                      <li>
-                        1 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        2 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        3 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        4 Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aliquam, ad?
-                      </li>
+                      {Content[state].layout.myself[1].content.map((item) => {
+                        return (
+                          <li>
+                            <strong>{item.title}</strong>
+                            {" - " + item.place + " " + item.date}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}
                 {index === 2 && (
                   <div>
                     <ul>
-                      <li>
-                        1 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        2 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        3 Lorem ipsum, dolor sit amet consectetur adipisicing.
-                      </li>
-                      <li>
-                        4 Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aliquam, ad?
-                      </li>
+                    {Content[state].layout.myself[2].content.map((item) => {
+                        return (
+                          <li>
+                            <strong>{item.title}</strong>
+                            {" - " + item.place + " " + item.date}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}

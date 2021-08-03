@@ -1,20 +1,52 @@
 import React from "react";
+import { colors } from "../styles/theme";
+import {
+  AiOutlineMail,
+  AiOutlinePhone,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+} from "react-icons/ai";
 
 const Footer = () => {
+  
   return (
     <>
       <footer id="contact">
         <div className="container">
-          <h1>Contact</h1>
+          <div className="mail">
+            <span className="icon">
+              {" "}
+              <AiOutlineMail className="icon" />
+            </span>
+            florianbaumes@gmail.com
+          </div>
+          <div className="tel">
+            <span className="icon">
+              {" "}
+              <AiOutlinePhone className="icon" />
+            </span>
+            06.95.15.81.66
+          </div>
+
+          <div className="icon icon--big">
+            <a href="https://www.linkedin.com/in/florian-baumes-775b80184/" target="_blank">
+            {" "}
+            <AiOutlineLinkedin /></a>
+          </div>
+          <div className="icon icon--big">
+          <a href="https://github.com/Pandation" target="_blank"> {" "}
+            <AiOutlineGithub className="icon" /> </a>
+          </div>
         </div>
       </footer>
       <style jsx>{`
         footer {
-          background-color: rgb(17, 17, 17);
+          background-color: ${colors.primary};
           color: rgb(173, 173, 173);
-          height: 90vh;
-          font-size: clamp(10px, 5vw, 20px);
+          font-size: clamp(10px, 5vw, 25px);
           display: flex;
+          height: 150px;
+          color: white;
           align-items: center;
           justify-content: center;
           > .container {
@@ -22,71 +54,28 @@ const Footer = () => {
             width: 1280px;
             height: 80%;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 25px;
-            > h1 {
-              font-size: 55px;
-              color: white;
-            }
-            > .svgPix {
+            > div {
               display: flex;
-              justify-content: center;
               align-items: center;
-              > img {
-                box-sizing: border-box;
-                padding: 25px;
-                border: inset 4px rgb(223, 0, 223);
-                border-radius: 5px;
-                max-height: 550px;
+              transition: transform .1s linear;
+              &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
               }
             }
           }
         }
-        .contentContainer {
-          width: 100%;
-          > div {
-            width: 100%;
+        .icon {
+          font-size: 2em;
+          position: relative;
+          margin-right: 10px;
+          &--big {
+            font-size: 3em;
           }
-          ul {
-            > li {
-              margin: 10px auto;
-            }
-          }
-        }
-        nav > ul {
-          padding-bottom: 25px;
-          display: flex;
-          list-style: none;
-          justify-content: space-around;
-          > li {
-            margin: 0 10px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            text-align: center;
-            height: 35px;
-            color: white;
-            font-weight: bold;
-            position: relative;
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              transform-origin: center;
-              width: 20%;
-              height: 10px;
-              border-bottom: solid 3px white;
-              transition: width 0.2s linear;
-            }
-            &.active {
-              color: rgb(223, 0, 223);
-              &::after {
-                width: 100%;
-                height: 10px;
-                transform-origin: top left;
-                border-color: rgb(223, 0, 223);
-              }
-            }
+          &:not(.icon--big) {
+            top: 6px;
           }
         }
       `}</style>
