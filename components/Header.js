@@ -15,13 +15,24 @@ const Header = () => {
           height: 100vh;
           background-image: linear-gradient(
               to right,
-              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.4),
               rgba(0, 0, 0, 0.1)
             ),
             url("bckgd_about.jpg");
           background-size: cover;
           display: flex;
           flex-direction: column;
+        @media all and (max-width: 450px) {
+          width: 100%;
+          height: min-content;
+          background-size: cover;
+          background-image:linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0.4),
+              rgba(0, 0, 0, 0.1)
+            ), url("bckgd_about.jpg");
+          
+        }
         }
       `}</style>
     </>

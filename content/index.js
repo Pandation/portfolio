@@ -12,7 +12,6 @@ import {
 
 export const Content = {
   en: {
-    button:"See more" ,
     layout: {
       menu: {
         about: "About Me",
@@ -33,6 +32,7 @@ export const Content = {
         "React Native",
         "Fullstack",
       ],
+      button: "See more",
       myself: [
         {
           title: "Myself",
@@ -47,9 +47,19 @@ export const Content = {
           title: "Experience",
           content: [
             {
-              title: "Agent Intérimaire",
-              place: "La Poste",
+              title: "Fullstack Developer",
+              place: "RCR Editions @ Montpellier",
+              date: "April-June 2021",
+            },
+            {
+              title: "Production Agent",
+              place: "La Poste @ Mauguio",
               date: "2016-2019",
+            },
+            {
+              title: "BAFA Animator",
+              place: "Cityhall @ Frontignan (34)",
+              date: "2014-2015",
             },
           ],
         },
@@ -57,10 +67,20 @@ export const Content = {
           title: "Education & Certifications",
           content: [
             {
-              title: "Agent Intérimaire",
-              place: "La Poste",
-              date: "2016-2019",
+              title: "Web & Web Mobile Developer",
+              place: "ADRAR School @ Montpellier",
+              date: "2020-2021",
             },
+            {
+              title: "Mathematics License",
+              place: "Sciences University @ Montpellier",
+              date: "2017-2018",
+            },
+            {
+              title: "DAEU B",
+              place: "Sciences University @ Montpellier",
+              date: "2016-2017",
+            }
           ],
         },
       ],
@@ -104,9 +124,9 @@ export const Content = {
         icon: <FaNodeJs />,
       },
       {
-        title: "Intégration/Déploiement Continu",
+        title: "Continue Integration/Deployment",
         paragraph:
-          "By deploying on the Vercel platform, I learned to practice CI / CD from my Github repositories.En déployant sur la plateforme Vercel j'ai appris à pratiquer le CI/CD à partir de mes repositories Github.",
+          "By deploying on the Vercel platform, I learned to practice CI / CD from my Github repositories.",
         icon: <FaCircleNotch />,
       },
       {
@@ -167,7 +187,6 @@ export const Content = {
     ],
   },
   fr: {
-    button:"Voir plus" ,
     layout: {
       menu: {
         about: "À propos de moi",
@@ -188,6 +207,7 @@ export const Content = {
         "React Native",
         "Fullstack",
       ],
+      button: "Voir plus",
       myself: [
         {
           title: "Présentation",
@@ -202,9 +222,19 @@ export const Content = {
           title: "Expériences",
           content: [
             {
-              title: "Agent Intérimaire",
-              place: "La Poste",
+              title: "Développeur Fullstack",
+              place: "RCR Editions @ Montpellier",
+              date: "Avril-Juin 2021",
+            },
+            {
+              title: "Agent de Production",
+              place: "La Poste @ Mauguio",
               date: "2016-2019",
+            },
+            {
+              title: "Animateur BAFA",
+              place: "Mairie @ Frontignan (34)",
+              date: "2014-2015",
             },
           ],
         },
@@ -212,10 +242,20 @@ export const Content = {
           title: "Formation & Diplômes",
           content: [
             {
-              title: "Agent Intérimaire",
-              place: "La Poste",
-              date: "2016-2019",
+              title: "Développeur Web & Web Mobile",
+              place: "centre de formation ADRAR @ Montpellier",
+              date: "2020-2021",
             },
+            {
+              title: "Licence en Mathématiques",
+              place: "Faculté des Sciences @ Montpellier",
+              date: "2017-2018",
+            },
+            {
+              title: "DAEU B",
+              place: "Faculté des Sciences @ Montpellier",
+              date: "2016-2017",
+            }
           ],
         },
       ],

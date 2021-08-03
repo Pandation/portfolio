@@ -71,6 +71,9 @@ const NavBar = () => {
             margin: 15px;
             list-style-type: none;
             display: flex;
+            @media all and (max-width:450px) {
+              display: none;
+            }
             > li {
               margin: 10px;
               color: #eee;

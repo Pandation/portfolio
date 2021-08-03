@@ -7,7 +7,7 @@ import { Content } from "../content";
 const FrontCard = ({ title, status, background }) => {
   return (
     <>
-      <FrontSide>
+      <FrontSide style={{padding : 0}}>
         <div className="container">
           <div className="projectScreenshot">
             <img src={background} alt={`screenshot of ${title}`} />
@@ -63,11 +63,11 @@ const BackCard = ({ title, stacks , url}) => {
   const [state] = React.useContext(langageCtx)
   return (
     <>
-      <BackSide>
+      <BackSide style={{padding : 0}}>
         <div className="container">
           <h1>Stacks</h1>
           <ul>{stacks.map(stack => <li key={stack}>{stack}</li>)}</ul>
-          {url!="" && <button><a href={url}>{Content[state].button}</a></button>}
+          {url!="" && <button><a href={url}>{Content[state].layout.button}</a></button>}
         </div>
       </BackSide>
       <style jsx>{`
@@ -125,16 +125,15 @@ const BackCard = ({ title, stacks , url}) => {
 function CardAlt({ project }) {
   return (
     <>
-      {/* <Link href=""> */}
       <Flippy
         flipOnHover={true} // default false
         flipOnClick={false} // default false
         flipDirection="horizontal" // horizontal or vertical
         style={{
-          width: "400px",
-          height: "350px",
+          width: "auto",
+          height: "auto",
+          margin: "15px",
           borderRadius: "10px",
-          overflow: "hidden",
         }} /// these are optional style, it is not necessary
       >
         <FrontCard
@@ -144,7 +143,6 @@ function CardAlt({ project }) {
         />
         <BackCard title={project.title} url={project.url} stacks={project.stacks} />
       </Flippy>
-      {/* </Link> */}
       <style jsx>
         {`
           a {

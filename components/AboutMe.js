@@ -94,7 +94,7 @@ const AboutMe = () => {
                 {index === 2 && (
                   <div>
                     <ul>
-                    {Content[state].layout.myself[2].content.map((item) => {
+                      {Content[state].layout.myself[2].content.map((item) => {
                         return (
                           <li>
                             <strong>{item.title}</strong>
@@ -114,7 +114,7 @@ const AboutMe = () => {
         section {
           background-color: rgb(12, 12, 12);
           color: rgb(173, 173, 173);
-          height: 90vh;
+          padding: 100px 0;
           font-size: clamp(10px, 5vw, 20px);
           display: flex;
           align-items: center;
@@ -133,10 +133,15 @@ const AboutMe = () => {
             justify-content: space-between;
             align-items: flex-start;
             gap: 25px;
+            @media all and (max-width: 450px) {
+              width: 100%;
+              justify-content: center;
+            }
+
             > div {
               flex: 1;
               > h1 {
-                font-size: 55px;
+                font-size: 2.6em;
                 margin-top: 0;
                 color: white;
               }
@@ -145,6 +150,9 @@ const AboutMe = () => {
               display: flex;
               justify-content: center;
               align-items: center;
+              @media all and (max-width: 450px) {
+                display: none;
+              }
               > svg {
                 box-sizing: border-box;
                 padding: 25px;
@@ -156,6 +164,13 @@ const AboutMe = () => {
             }
           }
         }
+        .aboutContainer {
+          @media all and (max-width: 450px) {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+            }
+        }
         .contentContainer {
           width: 100%;
           > div {
@@ -166,12 +181,23 @@ const AboutMe = () => {
               margin: 10px auto;
             }
           }
+          p {
+            @media all and (max-width: 450px) {
+              text-align: justify;
+              margin: 0 15px;
+            }
+          }
         }
         nav > ul {
           padding-bottom: 25px;
           display: flex;
           list-style: none;
           justify-content: space-around;
+          @media all and (max-width: 450px) {
+              flex-direction: column;
+              padding: 0;
+            }
+
           > li {
             margin: 0 10px;
             text-overflow: ellipsis;
@@ -181,6 +207,9 @@ const AboutMe = () => {
             color: white;
             font-weight: bold;
             position: relative;
+            @media all and (max-width: 450px) {
+                margin-top: 10px;
+            }
             &::after {
               content: "";
               position: absolute;

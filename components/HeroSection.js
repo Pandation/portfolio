@@ -30,22 +30,37 @@ const HeroSection = () => {
           display: flex;
           align-items: center;
           justify-content: space-evenly;
+          @media all and (max-width:450px) {
+            flex-direction: column;
+          }
         }
         .heroInfos {
           color: white;
           font-size: 60px;
           font-weight: bold;
+          @media all and (max-width: 450px) {
+            font-size: 18px;
+          }
           > p {
             margin: 5px;
+            @media all and (max-width: 450px) {
+              margin: 0;
+            }
             &.intro {
               font-size: 25px;
               color: #bbb;
+              @media all and (max-width: 450px) {
+                font-size: 15px;
+              }
             }
           }
         }
         .heroImg {
           position: relative;
           margin: 45px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           &::before {
             border-radius: 50%;
             content: "";
@@ -58,9 +73,15 @@ const HeroSection = () => {
               rgba(0, 0, 0, 0.4),
               rgba(0, 0, 0, 0.8)
             );
+            @media all and (max-width:450px) {
+            width: 80%;
+          }
           }
           > img {
             max-height: 500px;
+            @media all and (max-width:450px) {
+            max-width: 80%;
+          }
           }
         }
       `}</style>

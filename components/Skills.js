@@ -27,6 +27,11 @@ const SkillCard = ({ icon, title, children }) => {
           height: 350px;
           width: 350px;
           transition: transform 0.2s linear, background-image 0.3s linear;
+          @media all and (max-width:450px) {
+            width: 100%;
+            height: auto;
+            margin-top: 15px;
+          }
           &:hover {
             transform: scale(1.05);
             > .bgDark {
@@ -49,8 +54,11 @@ const SkillCard = ({ icon, title, children }) => {
           background-color: rgb(27, 27, 27);
           transition: background-color 0.3s linear;
           > .cardContainer {
-            height: 80%;
             width: 80%;
+            @media all and (max-width: 450px) {
+              padding: 15px 0;
+              text-align: justify;
+            }
           }
         }
         .skillPicture {
@@ -125,7 +133,7 @@ const Skills = () => {
           }
         }
         h1 {
-          font-size: 55px;
+          font-size: 2.6em;
           color: white;
           margin: 50px auto;
         }
@@ -133,7 +141,12 @@ const Skills = () => {
           gap: 25px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: auto;
+          grid-template-rows: repeat(auto, 1fr);
+          @media all and (max-width: 450px) {
+            grid-template-columns: 95%;
+            justify-content: center;
+            gap:0;
+            }
         }
       `}</style>
     </>

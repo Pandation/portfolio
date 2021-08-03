@@ -48,15 +48,20 @@ const Portfolio = () => {
           }
         }
         h1 {
-          font-size: 55px;
+          font-size: 2.6em;
           color: white;
-          margin: 100px auto;
+          margin: 75px auto;
         }
         .grid {
           gap: 25px;
           display: grid;
+          overflow: visible;
           grid-template-columns: repeat(3, 1fr);
           grid-template-rows: auto;
+          @media all and (max-width: 450px) {
+            grid-template-columns: 1fr;
+            gap: 0;
+          }
         }
       `}</style>
     </>
