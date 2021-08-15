@@ -80,7 +80,7 @@ export const Content = {
               title: "DAEU B",
               place: "Sciences University @ Montpellier",
               date: "2016-2017",
-            }
+            },
           ],
         },
       ],
@@ -107,8 +107,7 @@ export const Content = {
       },
       {
         title: "React.js",
-        paragraph:
-          "On iOS or Android, just tell me what you want and I will programming it !",
+        paragraph: "I really enjoy React's components style programming (functionnal here with the hooks) and his ecosystem.",
         icon: <FaReact />,
       },
       {
@@ -212,10 +211,10 @@ export const Content = {
         {
           title: "Présentation",
           content: [
-            "Je suis un jeune étudiant qui veut être un développeur fullstack très compétent !\nJe suis juste un « amoureux de la résolution de problèmes », c'est pourquoi. Être rationnel et logique est mon credo et je me vois comme mon code : je peux toujours m'améliorer et je le ferai !",
+            "Je suis un jeune étudiant voulant être un développeur fullstack très compétent !\nJe suis juste un « amoureux de la résolution de problèmes »! C'est pourquoi être rationnel et logique est mon credo et je me vois comme mon code : je peux toujours m'améliorer et je le ferai !",
             `De plus, j'aime beaucoup travailler en équipe et partager des idées.
 
-            D'après mon expérience, apprendre des points de vue des autres est un très bon moyen d'améliorer les compétences sociales et techniques plus rapidement et mieux !`,
+            D'après mon expérience, apprendre des points de vue des autres est un très bon moyen d'améliorer les compétences sociales et techniques, plus rapidement et mieux !`,
           ],
         },
         {
@@ -255,7 +254,7 @@ export const Content = {
               title: "DAEU B",
               place: "Faculté des Sciences @ Montpellier",
               date: "2016-2017",
-            }
+            },
           ],
         },
       ],
@@ -327,7 +326,7 @@ export const Content = {
       {
         title: "Ostéomag",
         stacks: ["Next.js/React.js", "Headless Wordpress with WP GraphQL"],
-        url: "https://osteo.vercel.app",
+        url: "",
         backgroundImg: "./projects/screen_osteo.png",
         status: "En développement",
       },
@@ -348,14 +347,14 @@ export const Content = {
       {
         title: "JSnake",
         stacks: ["JavaScript", "HTML5 & CSS3"],
-        url: "https://j-snake.netlify.app",
+        url: "https://js-snake.netlify.app",
         backgroundImg: "./projects/screen_snake.png",
         status: "Décembre 2020",
       },
       {
         title: "GéoQuizz",
         stacks: ["JavaScript", "Bootstrap", "HTML5 & CSS3"],
-        url: "https://js-geoquizz.netlify.app/.app",
+        url: "https://js-geoquizz.netlify.app/",
         backgroundImg: "./projects/screen_geo.png",
         status: "Décembre 2020",
       },
