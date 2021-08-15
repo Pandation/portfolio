@@ -41,6 +41,9 @@ const HeroSection = () => {
           @media all and (max-width: 450px) {
             font-size: 18px;
           }
+          > p {
+            margin: 0;
+          }
           > .intro {
             font-size: 25px;
             color: #bbb;
