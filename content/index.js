@@ -151,7 +151,7 @@ export const Content = {
       {
         title: "Ostéomag",
         stacks: ["Next.js/React.js", "Headless Wordpress with WP GraphQL"],
-        url: "https://osteo.vercel.app",
+        url: "",
         backgroundImg: "./projects/screen_osteo.png",
         status: "In development",
       },
