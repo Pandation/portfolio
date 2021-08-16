@@ -50,6 +50,7 @@ const Portfolio = () => {
         h1 {
           font-size: 2.6em;
           color: white;
+          text-align: center;
           margin: 75px auto;
         }
         .grid {

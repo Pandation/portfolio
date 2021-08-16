@@ -143,6 +143,7 @@ const AboutMe = () => {
               > h1 {
                 font-size: 2.6em;
                 margin-top: 0;
+                text-align: center;
                 color: white;
               }
             }

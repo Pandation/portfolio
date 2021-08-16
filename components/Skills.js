@@ -136,6 +136,7 @@ const Skills = () => {
           font-size: 2.6em;
           color: white;
           margin: 50px auto;
+          text-align: center;
         }
         .grid {
           gap: 25px;

@@ -3,6 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { Content } from "../content";
 import { langageCtx } from "../pages/_app";
+import { colors } from "../styles/theme";
 
 const Learning = () => {
   const [state] = React.useContext(langageCtx);
@@ -53,6 +54,7 @@ const Learning = () => {
           font-size: 2.6em;
           color: white;
           margin: 50px auto;
+          text-align: center;
         }
         ul {
             list-style: none;
@@ -69,7 +71,12 @@ const Learning = () => {
                 width: 500px;
                 display: flex;
                 justify-content: space-between;
-
+                > span:first-child, > span:last-child {
+                    color: ${colors.primary};
+                }
+                @media all and (max-width: 450px) {
+                    width: 100%;
+                }
             }
         }
       `}</style>
