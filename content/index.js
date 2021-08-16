@@ -100,9 +100,9 @@ export const Content = {
         ),
       },
       {
-        title: "JavaScript",
+        title: "JavaScript / TypeScript",
         paragraph:
-          "I have solid notions in native JS. I choose to specialized myself in React.js because I like his logic.",
+          "I have solid notions in native JS and now I learn TypeScript.",
         icon: <FaJs />,
       },
       {
@@ -149,13 +149,6 @@ export const Content = {
     ],
     projects: [
       {
-        title: "Ostéomag",
-        stacks: ["Next.js/React.js", "Headless Wordpress with WP GraphQL"],
-        url: "",
-        backgroundImg: "./projects/screen_osteo.png",
-        status: "In development",
-      },
-      {
         title: "DreamTime",
         stacks: ["Expo", "React Native"],
         url: "",
@@ -184,6 +177,17 @@ export const Content = {
         status: "December 2020",
       },
     ],
+    learning: {
+      title : "What I learn now",
+      subjects : [
+        "TypeScript",
+        "Wordpress (basic, create his own theme, create plugins and headless)",
+        "React Native",
+        "Docker",
+        "Figma",
+        "UX/UI rules"
+      ]
+    }
   },
   fr: {
     layout: {
@@ -274,9 +278,9 @@ export const Content = {
         ),
       },
       {
-        title: "JavaScript",
+        title: "JavaScript / TypeScript",
         paragraph:
-          "J'ai de très bonnes bases en JavaScript natif et j'ai choisi de me spécialiser sur React.js parce que j'adore son fonctionnement.",
+          "J'ai de très bonnes bases en JavaScript natif et je me forme actuellement sur TypeScript.",
         icon: <FaJs />,
       },
       {
@@ -324,13 +328,6 @@ export const Content = {
     ],
     projects: [
       {
-        title: "Ostéomag",
-        stacks: ["Next.js/React.js", "Headless Wordpress with WP GraphQL"],
-        url: "",
-        backgroundImg: "./projects/screen_osteo.png",
-        status: "En développement",
-      },
-      {
         title: "DreamTime",
         stacks: ["Expo", "React Native"],
         url: "",
@@ -359,5 +356,16 @@ export const Content = {
         status: "Décembre 2020",
       },
     ],
+    learning: {
+      title : "Ce que j'apprends en ce moment",
+      subjects : [
+        "TypeScript",
+        "Wordpress (base, créer son propre thème, créer des plugins et WP en headless)",
+        "React Native",
+        "Docker",
+        "Figma",
+        "Règles d'UX/UI"
+      ]
+    }
   },
 };
