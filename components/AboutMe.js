@@ -207,6 +207,9 @@ const AboutMe = () => {
             color: white;
             font-weight: bold;
             position: relative;
+            &:hover {
+                cursor: pointer;
+              }
             @media all and (max-width: 450px) {
                 margin-top: 10px;
             }

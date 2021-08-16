@@ -1,8 +1,8 @@
 import React from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { Content } from "../content";
 import { langageCtx } from "../pages/_app";
-
 
 const Learning = () => {
   const [state] = React.useContext(langageCtx);
@@ -15,16 +15,12 @@ const Learning = () => {
     <>
       <section id="now" ref={ref}>
         <div className={`container ${inView && "visible"}`}>
-          <h1>{Content[state].layout.menu.skills}</h1>
-          <div className="grid">
-            {Content[state].skills.map((item) => {
-              return (
-                <SkillCard key={item.title} icon={item.icon} title={item.title}>
-                  {item.paragraph}
-                </SkillCard>
-              );
-            })}
-          </div>
+          <h1>{Content[state].learning.title}</h1>
+          <ul>
+            {Content[state].learning.subjects.map((subject) => (
+              <li key={subject.trim()}><span><FaArrowRight/></span><span>{subject}</span><span><FaArrowLeft/></span></li>
+            ))}
+          </ul>
         </div>
       </section>
       <style jsx>{`
@@ -58,15 +54,22 @@ const Learning = () => {
           color: white;
           margin: 50px auto;
         }
-        .grid {
-          gap: 25px;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(auto, 1fr);
-          @media all and (max-width: 450px) {
-            grid-template-columns: 95%;
-            justify-content: center;
-            gap:0;
+        ul {
+            list-style: none;
+            margin: auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+            pointer-events: none;
+            > li {
+                font-size: 1.3em;
+                width: 500px;
+                display: flex;
+                justify-content: space-between;
+
             }
         }
       `}</style>

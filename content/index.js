@@ -181,7 +181,7 @@ export const Content = {
       title : "What I learn now",
       subjects : [
         "TypeScript",
-        "Wordpress (basic, create his own theme, create plugins and headless)",
+        "Wordpress",
         "React Native",
         "Docker",
         "Figma",
@@ -360,7 +360,7 @@ export const Content = {
       title : "Ce que j'apprends en ce moment",
       subjects : [
         "TypeScript",
-        "Wordpress (base, créer son propre thème, créer des plugins et WP en headless)",
+        "Wordpress",
         "React Native",
         "Docker",
         "Figma",

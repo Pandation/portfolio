@@ -83,7 +83,7 @@ const BackCard = ({ title, stacks , url}) => {
             to top left,
             rgb(20, 20, 20),
             ${colors.primary}
-          );;
+          );
           border: inset 10px ${colors.primary};
           > h1,
           > h2 {

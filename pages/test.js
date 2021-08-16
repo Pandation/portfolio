@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <Header />
       <Content />
-      <Learning />
+      <Learning/>
       <Footer />
     </div>
   );
