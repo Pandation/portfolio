@@ -5,6 +5,100 @@ import { Content } from "../content";
 import { langageCtx } from "../pages/_app";
 
 const SkillCard = ({ icon, title, children }) => {
+  if (title === "Git & Github") {
+    return (
+      <a href="https://github.com/pandation">
+        <div className="card">
+          <div className="bgDark">
+            <div className="cardContainer">
+              <div className="skillPicture">{icon}</div>
+              <div className="skillTitle">{title}</div>
+              <p className="skillInfos">{children}</p>
+              <button>Github</button>
+            </div>
+          </div>
+        </div>
+        <style jsx>{`
+          .card {
+            background-image: linear-gradient(
+              to right,
+              ${colors.primary},
+              rgb(132, 0, 255)
+            );
+            border-radius: 10px;
+            height: 350px;
+            width: 350px;
+            transition: transform 0.2s linear, background-image 0.3s linear;
+            @media all and (max-width: 450px) {
+              width: 100%;
+              height: auto;
+              margin-top: 15px;
+            }
+            &:hover {
+              transform: scale(1.05);
+              > .bgDark {
+                background-color: rgba(0, 0, 0, 0);
+                p {
+                  color: white;
+                }
+                button {
+                  background: black;
+                }
+                .skillPicture {
+                  color: black;
+                }
+              }
+            }
+          }
+          .bgDark {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(27, 27, 27);
+            transition: background-color 0.2s linear;
+            > .cardContainer {
+              width: 80%;
+              @media all and (max-width: 450px) {
+                padding: 15px 0;
+                text-align: justify;
+              }
+            }
+          }
+          .skillPicture {
+            flex: 1;
+            font-size: 2.2em;
+            transition: color 0.3s linear;
+            color: ${colors.primary};
+          }
+          .skillTitle {
+            font-weight: 500;
+            flex: 1;
+            color: white;
+          }
+          .skillInfos {
+            transition: color 0.1s linear;
+            flex: 2;
+            font-size: 0.9em;
+            color: rgb(173, 173, 173);
+          }
+          button {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: ${colors.primary};
+            color: white;
+            transition: all .3s linear;
+            border: none;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        `}</style>
+      </a>
+    );
+  }
   return (
     <>
       <div className="card">
@@ -27,7 +121,7 @@ const SkillCard = ({ icon, title, children }) => {
           height: 350px;
           width: 350px;
           transition: transform 0.2s linear, background-image 0.3s linear;
-          @media all and (max-width:450px) {
+          @media all and (max-width: 450px) {
             width: 100%;
             height: auto;
             margin-top: 15px;
@@ -63,7 +157,7 @@ const SkillCard = ({ icon, title, children }) => {
         }
         .skillPicture {
           flex: 1;
-          font-size: 2.2em;
+          font-size: ${title === "PHP7.X.X" ? "3.8em" : "2.2em"};
           transition: color 0.3s linear;
           color: ${colors.primary};
         }
@@ -146,8 +240,8 @@ const Skills = () => {
           @media all and (max-width: 450px) {
             grid-template-columns: 95%;
             justify-content: center;
-            gap:0;
-            }
+            gap: 0;
+          }
         }
       `}</style>
     </>
