@@ -344,7 +344,7 @@ export const Content = {
       {
         title: "JSnake",
         stacks: ["JavaScript", "HTML5 & CSS3"],
-        url: "https://js-snake.netlify.app",
+        url: "https://j-snake.netlify.app/",
         backgroundImg: "./projects/screen_snake.png",
         status: "Décembre 2020",
       },
