@@ -93,7 +93,7 @@ const SkillCard = ({ icon, title, children }) => {
             border: none;
             &:hover {
               cursor: pointer;
-            }
+            } 
           }
         `}</style>
       </a>
