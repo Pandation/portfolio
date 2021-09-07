@@ -183,9 +183,8 @@ export const Content = {
         "TypeScript",
         "Wordpress",
         "React Native",
-        "Docker",
+        "Shopify",
         "Figma",
-        "UX/UI rules"
       ]
     }
   },
@@ -362,9 +361,8 @@ export const Content = {
         "TypeScript",
         "Wordpress",
         "React Native",
-        "Docker",
+        "Shopify",
         "Figma",
-        "Règles d'UX/UI"
       ]
     }
   },

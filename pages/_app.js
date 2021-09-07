@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import React from "react";
 import Head from "next/head";
+import SessionProvider from "../reducers/session";
 
 export const langageCtx = React.createContext();
 
@@ -25,9 +26,12 @@ function App({ Component, pageProps }) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta property="og:type" content="Website" />
+        
       </Head>
       <langageCtx.Provider value={[state, setState]}>
-        <Component {...pageProps} />
+        <SessionProvider>
+          <Component {...pageProps} />
+        </SessionProvider>{" "}
       </langageCtx.Provider>
     </>
   );
