@@ -1,95 +1,107 @@
-import { useRef, useState, useContext, useEffect } from "react";
-import { colors } from "../styles/theme";
-import { useRouter } from "next/router";
-import { SessionContext } from "../reducers/session";
+import { useState } from "react";
+import { colors } from "../../../styles/theme";
 
-const LoginPage = (props) => {
-  const [_, dispatch] = useContext(SessionContext);
-
-  const ref = useRef(null);
-  const usernameInput = useRef(null);
-  const passwordInput = useRef(null);
-  const [credentials, setCredentials] = useState({
-    username: "",
-    password: "",
+const ExperienceForm = ({ method = "POST", id = "" }) => {
+  const [formInput, setFormInput] = useState({
+    jobTitle: "",
+    society: "",
+    place: "",
+    date: "",
+    language: "fr",
   });
   const [errorMessage, setErrorMessage] = useState("");
-  const router = useRouter();
 
-  useEffect(() => {
-    if (usernameInput && passwordInput) {
-      setCredentials({
-        ...credentials,
-        username: usernameInput?.current?.value,
-        password: passwordInput?.current?.value,
-      });
-    }
-  }, [props]);
   async function fetchData() {
-    const data = await fetch("http://localhost:5000/api/auth/login", {
+    for(let input in formInput) {
+        if(formInput[input] == "") return;
+    }
+    console.log(formInput)
+    const data = await fetch("http://localhost:5000/api/portfolio/experience", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Origin: "http://localhost:3000",
       },
-      body: JSON.stringify({ ...credentials }),
+      body: JSON.stringify({ ...formInput }),
     });
     const result = await data.json();
-    if (!result.auth) {
-      setErrorMessage(result.message);
-      return;
-    }
-    dispatch({ type: "LOGIN", payload: result });
-    router.push("/admin");
+    console.log(result)
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchData();
   };
 
   const handleChange = (e) =>
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    setFormInput({ ...formInput, [e.target.name]: e.target.value });
 
   return (
     <>
       <div className="container">
         <div className="formContainer">
-          <h2>Login</h2>
+          <h2>Add an Experience</h2>
           {errorMessage && <div className="error">{errorMessage}</div>}
-          <form onSubmit={handleSubmit} ref={ref}>
+          <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username">Username</label>
+              <label htmlFor="jobTitle">JobTitle</label>
               <input
-                name="username"
+                name="jobTitle"
                 type="text"
                 onChange={handleChange}
-                required
-                ref={usernameInput}
+                required={method === "POST"}
               />
             </div>
             <div>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="society">Society</label>
               <input
-                name="password"
-                type="password"
+                name="society"
+                type="text"
                 onChange={handleChange}
-                required
-                ref={passwordInput}
+                required={method === "POST"}
               />
             </div>
-            <button>Sign Up</button>
+            <div>
+              <label htmlFor="place">Place</label>
+              <input
+                name="place"
+                type="text"
+                onChange={handleChange}
+                required={method === "POST"}
+              />
+            </div>
+            <div>
+              <label htmlFor="date">Date</label>
+              <input
+                name="date"
+                type="text"
+                onChange={handleChange}
+                required={method === "POST"}
+              />
+            </div>
+            <div>
+              <select
+                value={formInput.language}
+                name="language"
+                onChange={handleChange}
+              >
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+            <button>
+              {method === "POST" && "Ajouter une expérience"}
+              {!method === "POST" && "Editer une expérience"}
+            </button>
           </form>
         </div>
       </div>
       <style jsx>{`
         @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
         .container {
-          background-image: linear-gradient(
-            to bottom right,
-            ${colors.primary},
-            rgb(52, 1, 77)
-          );
-          height: 100vh;
+          
+          box-sizing: border-box;
+           flex:1;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -99,11 +111,9 @@ const LoginPage = (props) => {
         .formContainer {
           background-color: white;
           border-radius: 5px;
-
           display: flex;
-          height: 60%;
-          width: 50%;
-          max-width: 600px;
+          width: 80%;
+          height: 80%;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -118,7 +128,7 @@ const LoginPage = (props) => {
             border: solid 1px red;
           }
           > h2 {
-            font-family: "Pacifico", cursive;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 2em;
           }
         }
@@ -171,4 +181,4 @@ const LoginPage = (props) => {
   );
 };
 
-export default LoginPage;
+export default ExperienceForm;
