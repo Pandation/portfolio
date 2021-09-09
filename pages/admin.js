@@ -22,43 +22,42 @@ import Experience from "../components/admin/views/Experience";
 import Learnings from "../components/admin/views/Learnings";
 import Projects from "../components/admin/views/Projects";
 import Skills from "../components/admin/views/Skills";
-
+import AdminProvider from "../reducers/admin";
 
 const AdminPage = () => {
   const [session, dispatch] = React.useContext(SessionContext);
   const [viewChild, setViewChild] = React.useState("");
   const router = useRouter();
 
-  
-const config = {
-  menuItem: [
-    {
-      title: "Experience",
-      icon: <FaBlackTie />,
-      child: <Experience setViewChild={setViewChild} />,
-    },
-    {
-      title: "Educations",
-      icon: <FaWpforms />,
-      child: <Education setViewChild={setViewChild} />,
-    },
-    {
-      title: "Skills",
-      icon: <FaBuffer />,
-      child: <Skills setViewChild={setViewChild} />,
-    },
-    {
-      title: "Projects",
-      icon: <FaCodepen />,
-      child: <Projects setViewChild={setViewChild} />,
-    },
-    {
-      title: "Learnings",
-      icon: <FaGrinBeam />,
-      child: <Learnings setViewChild={setViewChild}/>,
-    },
-  ],
-};
+  const config = {
+    menuItem: [
+      {
+        title: "Experience",
+        icon: <FaBlackTie />,
+        child: <Experience setViewChild={setViewChild} />,
+      },
+      {
+        title: "Educations",
+        icon: <FaWpforms />,
+        child: <Education setViewChild={setViewChild} />,
+      },
+      {
+        title: "Skills",
+        icon: <FaBuffer />,
+        child: <Skills setViewChild={setViewChild} />,
+      },
+      {
+        title: "Projects",
+        icon: <FaCodepen />,
+        child: <Projects setViewChild={setViewChild} />,
+      },
+      {
+        title: "Learnings",
+        icon: <FaGrinBeam />,
+        child: <Learnings setViewChild={setViewChild} />,
+      },
+    ],
+  };
 
   React.useEffect(() => {
     if (!session.auth || session.user == {}) router.push("/login");
@@ -69,35 +68,37 @@ const config = {
   };
   return (
     <>
-      {session.auth && (
-        <div className="adminArea">
-          <Sidebar>
-            <SidebarHeader setViewChild={setViewChild} child={<Home />} />
-            <SidebarSection
-              setViewChild={setViewChild}
-              child={<Home />}
-              title="Mon Portfolio"
-            >
-              {config.menuItem.map((item) => (
-                <SidebarItem
-                  key={item.title}
-                  title={item.title}
-                  child={item.child}
-                  setViewChild={setViewChild}
-                  icon={item.icon}
-                />
-              ))}
-            </SidebarSection>
-          </Sidebar>
-          <main>
-            <header>
-              ADMIN AREA - Welcome {session.user.username}!
-              <button onClick={Logout}>Logout</button>
-            </header>
-            <ViewContainer viewChild={viewChild} />
-          </main>
-        </div>
-      )}
+      <AdminProvider>
+        {session.auth && (
+          <div className="adminArea">
+            <Sidebar>
+              <SidebarHeader setViewChild={setViewChild} child={<Home />} />
+              <SidebarSection
+                setViewChild={setViewChild}
+                child={<Home />}
+                title="Mon Portfolio"
+              >
+                {config.menuItem.map((item) => (
+                  <SidebarItem
+                    key={item.title}
+                    title={item.title}
+                    child={item.child}
+                    setViewChild={setViewChild}
+                    icon={item.icon}
+                  />
+                ))}
+              </SidebarSection>
+            </Sidebar>
+            <main>
+              <header>
+                ADMIN AREA - Welcome {session.user.username}!
+                <button onClick={Logout}>Logout</button>
+              </header>
+              <ViewContainer viewChild={viewChild} />
+            </main>
+          </div>
+        )}
+      </AdminProvider>
       <style jsx>{`
         .adminArea {
           width: 100%;

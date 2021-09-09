@@ -1,11 +1,28 @@
-import React from 'react'
-import Table from '../Table'
+import React from "react";
+import Table from "../Table";
 
 const EducationView = () => {
-    return (
-        <>
-      <div><h2>Education</h2><span>Add</span></div>
-      <Table data headers/>
+  const [data, setData] = React.useState({});
+
+  React.useEffect(() => {
+    if (data == {}) {
+      const asyncFetch = async () => {
+        const dataFetched = await fetch(
+          "http://localhost:5000/api/portfolio/experience"
+        );
+        const result = await dataFetched.json();
+        console.log(result);
+      };
+      asyncFetch();
+    }
+  }, [data]);
+  return (
+    <>
+      <div>
+        <h2>Education</h2>
+        <span>Add</span>
+      </div>
+      <Table data headers />
       <style jsx>{`
         div {
           background: white;
@@ -24,7 +41,7 @@ const EducationView = () => {
         }
       `}</style>
     </>
-    )
-}
+  );
+};
 
-export default EducationView
+export default EducationView;

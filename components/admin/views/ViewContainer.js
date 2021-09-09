@@ -9,7 +9,7 @@ const ViewContainer = ({viewChild}) => {
           flex: 8;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: stretch;
         }
       `}</style>

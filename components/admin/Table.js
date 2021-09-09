@@ -1,15 +1,17 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 
-const TableHeader = ({ data }) => {
+const TableHeader = ({ headers }) => {
   return (
     <>
       <thead>
         <tr>
-          <th>Header 1</th>
-          <th>Header 2</th>
-          <th>Header 3</th>
-          <th>Header 4</th>
-          <th>Header 5</th>
+          {headers?.length &&
+            headers.map((header) => {
+              if (header != "_id" && header != "__v")
+                return <th>{header.toUpperCase()}</th>;
+            })}
+          <th>EDIT/DEL</th>
         </tr>
       </thead>
       <style jsx>
@@ -32,13 +34,13 @@ const TableHeader = ({ data }) => {
           }
 
           thead th {
-            color: #ffffff;
-            background: #c5940e;
+            color: #202020;
+            background: #e7b93b;
           }
 
           thead th:nth-child(odd) {
             color: #ffffff;
-            background: #3d1653;
+            background: #8434b3;
           }
 
           tr:nth-child(even) {
@@ -72,22 +74,69 @@ const TableHeader = ({ data }) => {
               text-align: left;
               border-bottom: 1px solid #f7f7f9;
             }
-
           }
         `}
       </style>
     </>
   );
 };
-const TableRow = ({ data }) => {
+
+const TableDefinition = ({ children }) => {
+  return (
+    <>
+      <td>{children}</td>
+      <style jsx>{`
+        td {
+          text-align: center;
+          font-weight: bold;
+          border-right: 1px solid #f8f8f8;
+          font-size: 18px;
+          padding: 10px 0;
+        }
+        @media (max-width: 767px) {
+          td {
+            padding: 15px 0.625em 0.625em 0.625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+            display: block;
+            text-align: center;
+          }
+          td:nth-child(odd) {
+            background: #f8f8f8;
+            border-right: 1px solid #e6e4e4;
+          }
+          td:nth-child(even) {
+            border-right: 1px solid #e6e4e4;
+          }
+        }
+      `}</style>
+    </>
+  );
+};
+const TableRow = ({ row, index }) => {
+  const tds = [];
+  for (let key in row) {
+    if (key != "_id" && key != "__v")
+      tds.push(
+        <TableDefinition key={`${key}_${index}`}>{row[key]}</TableDefinition>
+      );
+  }
   return (
     <>
       <tr>
-        <td>Content 1</td>
-        <td>Content 1</td>
-        <td>Content 1</td>
-        <td>Content 1</td>
-        <td>Content 1</td>
+        {tds}
+        <TableDefinition>
+          <span>
+            {/*RAJOUTER DISPATCH DELETE */}
+            <FaTrash />
+          </span>
+        </TableDefinition>
       </tr>
       <style jsx>
         {`
@@ -101,59 +150,19 @@ const TableRow = ({ data }) => {
             -webkit-font-smoothing: antialiased;
             background: rgba(71, 147, 227, 1);
           }
-          td {
-            text-align: center;
-            padding: 15px;
-            font-weight: bold;
-            border-right: 1px solid #f8f8f8;
-            font-size: 18px;
-          }
-
           tr:nth-child(even) {
             background: #dad9d9;
           }
 
           @media (max-width: 767px) {
-            tbody {
-              display: block;
-            }
-
-            tbody {
-              width: auto;
-              position: relative;
-              overflow-x: auto;
-            }
-            td {
-              padding: 20px 0.625em 0.625em 0.625em;
-              height: 60px;
-              vertical-align: middle;
-              box-sizing: border-box;
-              overflow-x: hidden;
-              overflow-y: auto;
-              width: 120px;
-              font-size: 13px;
-              text-overflow: ellipsis;
-            }
-
-            tbody tr {
+            tr {
               display: table-cell;
             }
-            tbody tr:nth-child(odd) {
+            tr:nth-child(odd) {
               background: none;
             }
             tr:nth-child(even) {
               background: transparent;
-            }
-            tr td:nth-child(odd) {
-              background: #f8f8f8;
-              border-right: 1px solid #e6e4e4;
-            }
-            tr td:nth-child(even) {
-              border-right: 1px solid #e6e4e4;
-            }
-            tbody td {
-              display: block;
-              text-align: center;
             }
           }
         `}
@@ -161,23 +170,30 @@ const TableRow = ({ data }) => {
     </>
   );
 };
-const Table = ({ headers, data }) => {
+export default function Table({ headers, data }) {
+  console.log("table ", data.fr);
   return (
     <>
       <div className="table-wrapper">
         <table className="fl-table">
-          <TableHeader />
+          <TableHeader headers={headers} />
           <tbody>
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
+            {data?.en?.length > 0 &&
+              data.en.map((item, index) => (
+                <TableRow
+                  key={`${item.jobTitle.trim()}_${index}_en`}
+                  index={index}
+                  row={item}
+                />
+              ))}
+            {data?.fr?.length > 0 &&
+              data.fr.map((item, index) => (
+                <TableRow
+                  key={`${item.jobTitle.trim()}_${index}_fr`}
+                  index={index}
+                  row={item}
+                />
+              ))}
           </tbody>
         </table>
       </div>
@@ -215,11 +231,17 @@ const Table = ({ headers, data }) => {
             color: white;
             padding: 0 0 10px;
           }
-        
+          tbody {
+            display: block;
+          }
+
+          tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+          }
         }
       `}</style>
     </>
   );
-};
-
-export default Table;
+}
