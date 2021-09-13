@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import Table from "../Table";
 import ExperienceForm from "../forms/ExperienceForm";
+import { AdminContext } from "../../../reducers/admin";
 
 const ExperienceView = ({ setViewChild }) => {
   const [data, setData] = React.useState({
@@ -8,9 +9,10 @@ const ExperienceView = ({ setViewChild }) => {
     data: undefined,
   });
   const [loading, setLoading] = React.useState(true);
+  const [adminState, dispatch] = useContext(AdminContext)
 
   React.useEffect(() => {
-    if (!data.data || loading) {
+    if (adminState.loading) {
       const asyncFetch = async () => {
         const dataFetched = await fetch(
           "http://localhost:5000/api/portfolio/experience"
@@ -21,12 +23,11 @@ const ExperienceView = ({ setViewChild }) => {
           headersResult.push(key);
         }
         setData({ data: dataResult, headers: headersResult });
-        console.log(data);
-        setLoading(false);
+        dispatch({type: "SHOULD_RELOAD_FALSE"})
       };
       asyncFetch();
     }
-  }, [loading]);
+  }, [adminState]);
   return (
     <div className="container">
       <div className="title">

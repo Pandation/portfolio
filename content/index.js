@@ -8,6 +8,7 @@ import {
   FaPhp,
   FaDatabase,
   FaCircleNotch,
+  FaVuejs
 } from "react-icons/fa";
 
 export const Content = {
@@ -89,24 +90,13 @@ export const Content = {
     },
     skills: [
       {
-        title: "HTML5 & CSS3",
-        paragraph:
-          "I have good notions of these two langages. I also know Sass and CSS-in-Js. I can integrate your wireframes.",
-        icon: (
-          <>
-            <FaHtml5 />
-            <FaCss3Alt />
-          </>
-        ),
-      },
-      {
         title: "JavaScript / TypeScript",
         paragraph:
           "I have solid notions in native JS and now I learn TypeScript.",
         icon: <FaJs />,
       },
       {
-        title: "React.js",
+        title: "React.js / React Native (+ Expo)",
         paragraph: "I really enjoy React's components style programming (functionnal here with the hooks) and his ecosystem.",
         icon: <FaReact />,
       },
@@ -121,6 +111,12 @@ export const Content = {
         paragraph:
           "In parallel with my learning of Next.js, I learned to code with Node.js & Express.js in order to continue my learning of the modern JavaScript ecosystem.",
         icon: <FaNodeJs />,
+      },
+      {
+        title: "Vue.js",
+        paragraph:
+          "I know the fundamentals of Vue.js (v3) and vue-router",
+        icon: <FaVuejs />,
       },
       {
         title: "Continue Integration/Deployment",
@@ -182,9 +178,8 @@ export const Content = {
       subjects : [
         "TypeScript",
         "Wordpress",
-        "React Native",
         "Shopify",
-        "Figma",
+        "Nuxt.js"
       ]
     }
   },
@@ -266,24 +261,13 @@ export const Content = {
     },
     skills: [
       {
-        title: "HTML5 & CSS3",
-        paragraph:
-          "J'ai de bonnes bases dans ces deux langages. Je connais aussi le Sass et le CSS-in-Js. Je peux faire de l'intégration web.",
-        icon: (
-          <>
-            <FaHtml5 />
-            <FaCss3Alt />
-          </>
-        ),
-      },
-      {
         title: "JavaScript / TypeScript",
         paragraph:
           "J'ai de très bonnes bases en JavaScript natif et je me forme actuellement sur TypeScript.",
         icon: <FaJs />,
       },
       {
-        title: "React.js",
+        title: "React.js / React Native (+ Expo)",
         paragraph:
           "J'aime sa logique de programmation par composants (fonctionnels ici avec les hooks) et son écosystème.",
         icon: <FaReact />,
@@ -299,6 +283,12 @@ export const Content = {
         paragraph:
           "En parallèle de mon apprentissage de Next.js, j'ai appris à coder avec Node.js & Express.js afin de continuer mon apprentissage de l'écosystème JavaScript moderne.",
         icon: <FaNodeJs />,
+      },
+      {
+        title: "Vue.js",
+        paragraph:
+          "J'ai les bases sur le framework Vue.js (v3) et vue-router.",
+        icon: <FaVuejs />,
       },
       {
         title: "Intégration/Déploiement Continu",
@@ -360,9 +350,8 @@ export const Content = {
       subjects : [
         "TypeScript",
         "Wordpress",
-        "React Native",
         "Shopify",
-        "Figma",
+        "Nuxt.js",
       ]
     }
   },

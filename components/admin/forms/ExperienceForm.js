@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { colors } from "../../../styles/theme";
 
-const ExperienceForm = ({ method = "POST", id = "" }) => {
+const ExperienceForm = ({ method = "POST", id = ""  }) => {
   const [formInput, setFormInput] = useState({
     jobTitle: "",
     society: "",
@@ -15,7 +15,6 @@ const ExperienceForm = ({ method = "POST", id = "" }) => {
     for(let input in formInput) {
         if(formInput[input] == "") return;
     }
-    console.log(formInput)
     const data = await fetch("http://localhost:5000/api/portfolio/experience", {
       method: "POST",
       headers: {
@@ -25,7 +24,6 @@ const ExperienceForm = ({ method = "POST", id = "" }) => {
       body: JSON.stringify({ ...formInput }),
     });
     const result = await data.json();
-    console.log(result)
   }
 
   const handleSubmit = (e) => {

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
+import { AdminContext } from "../../reducers/admin";
 
 const TableHeader = ({ headers }) => {
   return (
@@ -9,7 +10,7 @@ const TableHeader = ({ headers }) => {
           {headers?.length &&
             headers.map((header) => {
               if (header != "_id" && header != "__v")
-                return <th>{header.toUpperCase()}</th>;
+                return <th key={header}>{header.toUpperCase()}</th>;
             })}
           <th>EDIT/DEL</th>
         </tr>
@@ -120,6 +121,7 @@ const TableDefinition = ({ children }) => {
   );
 };
 const TableRow = ({ row, index }) => {
+  const [_, dispatch] = useContext(AdminContext);
   const tds = [];
   for (let key in row) {
     if (key != "_id" && key != "__v")
@@ -132,8 +134,7 @@ const TableRow = ({ row, index }) => {
       <tr>
         {tds}
         <TableDefinition>
-          <span>
-            {/*RAJOUTER DISPATCH DELETE */}
+          <span onClick={() => dispatch({type : "DELETE", payload : row._id})}>
             <FaTrash />
           </span>
         </TableDefinition>
@@ -171,7 +172,6 @@ const TableRow = ({ row, index }) => {
   );
 };
 export default function Table({ headers, data }) {
-  console.log("table ", data.fr);
   return (
     <>
       <div className="table-wrapper">

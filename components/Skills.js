@@ -148,7 +148,11 @@ const SkillCard = ({ icon, title, children }) => {
           background-color: rgb(27, 27, 27);
           transition: background-color 0.3s linear;
           > .cardContainer {
-            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            padding: 40px 30px 35px 30px ;
             @media all and (max-width: 450px) {
               padding: 15px 0;
               text-align: justify;
@@ -162,13 +166,14 @@ const SkillCard = ({ icon, title, children }) => {
           color: ${colors.primary};
         }
         .skillTitle {
+          margin-top: 0px;
           font-weight: 500;
-          flex: 1;
+          flex: 2;
           color: white;
         }
         .skillInfos {
           transition: color 0.1s linear;
-          flex: 2;
+          flex: 4;
           font-size: 0.9em;
           color: rgb(173, 173, 173);
         }
