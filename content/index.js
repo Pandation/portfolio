@@ -96,7 +96,7 @@ export const Content = {
         icon: <FaJs />,
       },
       {
-        title: "React.js / React Native (+ Expo)",
+        title: "React.js/React Native (+Expo) & Redux",
         paragraph: "I really enjoy React's components style programming (functionnal here with the hooks) and his ecosystem.",
         icon: <FaReact />,
       },
@@ -267,7 +267,7 @@ export const Content = {
         icon: <FaJs />,
       },
       {
-        title: "React.js / React Native (+ Expo)",
+        title: "React.js/React Native (+Expo) & Redux",
         paragraph:
           "J'aime sa logique de programmation par composants (fonctionnels ici avec les hooks) et son écosystème.",
         icon: <FaReact />,
