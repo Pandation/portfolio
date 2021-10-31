@@ -1,85 +1,75 @@
-import { useRef, useState, useContext, useEffect } from "react";
-import { colors } from "../styles/theme";
+import { useState, useEffect, useContext } from "react";
+import { colors } from "/styles/theme";
 import { useRouter } from "next/router";
-import { SessionContext } from "../reducers/session";
+import { SessionContext } from "/reducers/session";
 
-const LoginPage = (props) => {
-  const [_, dispatch] = useContext(SessionContext);
+import Loader from "/components/admin/Loader";
 
-  const ref = useRef(null);
-  const usernameInput = useRef(null);
-  const passwordInput = useRef(null);
+import { AUTH } from "/reducers/session";
+
+const LoginPage = () => {
+  const [session, dispatch] = useContext(SessionContext);
+  const router = useRouter();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-  const [errorMessage, setErrorMessage] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
-    if (usernameInput && passwordInput) {
-      setCredentials({
-        ...credentials,
-        username: usernameInput?.current?.value,
-        password: passwordInput?.current?.value,
-      });
-    }
-  }, [props]);
-  async function fetchData() {
-    const data = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Origin: "http://localhost:3000",
-      },
-      body: JSON.stringify({ ...credentials }),
-    });
-    const result = await data.json();
-    if (!result.auth) {
-      setErrorMessage(result.message);
-      return;
-    }
-    dispatch({ type: "LOGIN", payload: result });
-    router.push("/admin");
+    dispatch({ type: AUTH.GET_ADMIN });
+  }, []);
+
+  async function login() {
+    dispatch({ type: AUTH.LOGIN, payload: credentials });
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchData();
+    login();
   };
 
   const handleChange = (e) =>
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
+  if (session.loggedIn) {
+    router.push("/admin");
+  }
+
   return (
     <>
       <div className="container">
-        <div className="formContainer">
-          <h2>Login</h2>
-          {errorMessage && <div className="error">{errorMessage}</div>}
-          <form onSubmit={handleSubmit} ref={ref}>
-            <div>
-              <label htmlFor="username">Username</label>
-              <input
-                name="username"
-                type="text"
-                onChange={handleChange}
-                required
-                ref={usernameInput}
-              />
+        {session.fetching && <Loader />}
+        {!session.fetching && !session.loggedIn && (
+          <>
+            <div className="formContainer">
+              <h2>Login</h2>
+              {session.error.status && (
+                <div className="error">{session.error.message}</div>
+              )}
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="username">Username</label>
+                  <input
+                    name="username"
+                    type="text"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password">Password</label>
+                  <input
+                    name="password"
+                    type="password"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <button>Sign Up</button>
+              </form>
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                name="password"
-                type="password"
-                onChange={handleChange}
-                required
-                ref={passwordInput}
-              />
-            </div>
-            <button>Sign Up</button>
-          </form>
-        </div>
+          </>
+        )}
       </div>
       <style jsx>{`
         @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
