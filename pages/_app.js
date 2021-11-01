@@ -11,17 +11,17 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <meta name="title" content="Florian Baumes's Portfolio" />
-        <meta name="description" content="All my projects and skills!" />
+        <meta name="description" content="Developer's portfolio of Florian Baumes with projects and skills" />
         <link
           rel="image_src"
           href="https://florianbaumes.fr/images/portfolio.png"
         />
-        <meta property="og:title" content="Florian Baumes" />
+        <meta property="og:title" content="Florian Baumes's Portfolio" />
         <meta
           property="og:image"
           content="https://florianbaumes.fr/images/portfolio.png"
         />
-        <meta property="og:description" content="Portfolio" />
+        <meta property="og:description" content="Developer's portfolio of Florian Baumes with projects and skills" />
         <meta property="og:url" content="https://florianbaumes.fr" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
@@ -29,9 +29,7 @@ function App({ Component, pageProps }) {
         
       </Head>
       <langageCtx.Provider value={[state, setState]}>
-        <SessionProvider>
           <Component {...pageProps} />
-        </SessionProvider>{" "}
       </langageCtx.Provider>
     </>
   );
