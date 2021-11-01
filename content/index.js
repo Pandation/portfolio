@@ -125,9 +125,9 @@ export const Content = {
         icon: <FaCircleNotch />,
       },
       {
-        title: "PHP7.X.X",
+        title: "PHP7.X.X / Symfony 5",
         paragraph:
-          "I also have good notions of PHP that I was able to learn in training.",
+          "I also have good notions of PHP/Symfony that I was able to learn in training.",
         icon: <FaPhp />,
       },
       {
@@ -148,28 +148,28 @@ export const Content = {
         title: "DreamTime",
         stacks: ["Expo", "React Native"],
         url: "",
-        backgroundImg: "./projects/default.png",
+        backgroundImg: "./projects/default.webp",
         status: "July 2021",
       },
       {
         title: "BreakingBad API",
         stacks: ["Next.js/React.js", "breaking-bad API"],
         url: "https://noobdev.fun/florian",
-        backgroundImg: "./projects/screen_bbapi.png",
+        backgroundImg: "./projects/screen_bbapi.webp",
         status: "January 2021",
       },
       {
         title: "JSnake",
         stacks: ["JavaScript", "HTML5 & CSS3"],
         url: "https://j-snake.netlify.app",
-        backgroundImg: "./projects/screen_snake.png",
+        backgroundImg: "./projects/screen_snake.webp",
         status: "December 2020",
       },
       {
         title: "GéoQuizz",
         stacks: ["JavaScript", "Bootstrap", "HTML5 & CSS3"],
-        url: "https://js-geoquizz.netlify.app/.app",
-        backgroundImg: "./projects/screen_geo.png",
+        url: "https://js-geoquizz.netlify.app",
+        backgroundImg: "./projects/screen_geo.webp",
         status: "December 2020",
       },
     ],
@@ -275,7 +275,7 @@ export const Content = {
       {
         title: "Next.js",
         paragraph:
-          "J'utilise ce framework fullstack au quotidien pour la génération de sites statiques qu'il permet. Mais aussi pour les outils intégrés.",
+          "J'utilise ce framework fullstack au quotidien pour la génération de sites statiques qu'il permet. Mais aussi pour les outils intégrés. (Actuellement version 12)",
         icon: <FaReact />,
       },
       {
@@ -297,9 +297,9 @@ export const Content = {
         icon: <FaCircleNotch />,
       },
       {
-        title: "PHP7.X.X",
+        title: "PHP7.X.X / Symfony 5",
         paragraph:
-          "Je dispose aussi de bonnes notions de PHP que j'ai pu apprendre en formation.",
+          "Je dispose aussi de bonnes notions de PHP/Symfony que j'ai pu apprendre en formation.",
         icon: <FaPhp />,
       },
       {
@@ -320,28 +320,28 @@ export const Content = {
         title: "DreamTime",
         stacks: ["Expo", "React Native"],
         url: "",
-        backgroundImg: "./projects/default.png",
+        backgroundImg: "./projects/default.webp",
         status: "Juillet 2021",
       },
       {
         title: "BreakingBad API",
         stacks: ["Next.js/React.js", "breaking-bad API"],
         url: "https://noobdev.fun/florian",
-        backgroundImg: "./projects/screen_bbapi.png",
+        backgroundImg: "./projects/screen_bbapi.webp",
         status: "Janvier 2021",
       },
       {
         title: "JSnake",
         stacks: ["JavaScript", "HTML5 & CSS3"],
         url: "https://j-snake.netlify.app/",
-        backgroundImg: "./projects/screen_snake.png",
+        backgroundImg: "./projects/screen_snake.webp",
         status: "Décembre 2020",
       },
       {
         title: "GéoQuizz",
         stacks: ["JavaScript", "Bootstrap", "HTML5 & CSS3"],
         url: "https://js-geoquizz.netlify.app/",
-        backgroundImg: "./projects/screen_geo.png",
+        backgroundImg: "./projects/screen_geo.webp",
         status: "Décembre 2020",
       },
     ],
@@ -350,8 +350,7 @@ export const Content = {
       subjects : [
         "TypeScript",
         "Wordpress",
-        "Shopify",
-        "Nuxt.js",
+        "Nest.js",
       ]
     }
   },
