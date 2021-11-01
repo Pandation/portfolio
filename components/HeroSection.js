@@ -1,8 +1,8 @@
 import React from "react";
-import AnimatedText from "../components/AnimatedText";
-import { colors } from "../styles/theme.js";
-import { Content } from "../content";
-import { langageCtx } from "../pages/_app";
+import AnimatedText from "@/components/AnimatedText";
+import { colors } from "@/styles/theme.js";
+import { Content } from "/content";
+import { langageCtx } from "/pages/_app";
 
 const HeroSection = () => {
   const [state] = React.useContext(langageCtx);
