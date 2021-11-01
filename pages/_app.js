@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import React from "react";
 import Head from "next/head";
-import SessionProvider from "../reducers/session";
 
 export const langageCtx = React.createContext();
 
