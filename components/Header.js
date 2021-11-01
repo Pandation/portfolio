@@ -18,7 +18,7 @@ const Header = () => {
               rgba(0, 0, 0, 0.4),
               rgba(0, 0, 0, 0.1)
             ),
-            url("bckgd_about.jpg");
+            url("bckgd_about.webp");
           background-size: cover;
           display: flex;
           flex-direction: column;
