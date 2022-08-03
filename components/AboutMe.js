@@ -73,8 +73,7 @@ const AboutMe = () => {
               <div className="contentContainer">
                 {index === 0 && (
                   <div>
-                    <p>{Content[state].layout.myself[0].content[0]}</p>
-                    <p>{Content[state].layout.myself[0].content[1]}</p>
+                    {Content[state].layout.myself[0].content.map(content => <p>{content}</p>)}
                   </div>
                 )}
                 {index === 1 && (
