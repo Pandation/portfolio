@@ -38,7 +38,7 @@ export const Content = {
         {
           title: "Myself",
           content: [
-            "I'm a young student who wants to be a very competent fullstack developer!\nI'm just a 'solving problem lover', that's why. To be rational and logical is my creed and I see myself just like my code : I can always improve myself and I will!",
+            "Versatile developer, I can perform both front and back tasks although my appetite for the latter is stronger. I'm just a 'solving problem lover', that's why. To be rational and logical is my creed and I see myself just like my code : I can always improve myself and I will!",
             `Plus, I really enjoy working in a team and sharing ideas.
 
       In my experience, learning from each others points of view is a really great way to improve social and technical skills faster and better!`,
@@ -48,9 +48,9 @@ export const Content = {
           title: "Experience",
           content: [
             {
-              title: "Fullstack Developer",
-              place: "RCR Editions @ Montpellier",
-              date: "April-June 2021",
+              title: "Frontend Developer Junior",
+              place: "DATASOLUTION @ Paris (Remote)",
+              date: "October 2021 - Today",
             },
             {
               title: "Production Agent",
@@ -178,8 +178,7 @@ export const Content = {
       subjects : [
         "TypeScript",
         "Wordpress",
-        "Shopify",
-        "Nuxt.js"
+        "Nest.js"
       ]
     }
   },
@@ -209,9 +208,8 @@ export const Content = {
         {
           title: "Présentation",
           content: [
-            "Je suis un jeune étudiant voulant être un développeur fullstack très compétent !\nJe suis juste un « amoureux de la résolution de problèmes »! C'est pourquoi être rationnel et logique est mon credo et je me vois comme mon code : je peux toujours m'améliorer et je le ferai !",
+            "Développeur polyvalent, je peux effectuer des tâches aussi bien côté front que back bien que mon appétence est plus forte pour le dernier. Je suis juste un « amoureux de la résolution de problèmes »! C'est pourquoi être rationnel et logique est mon credo et je me vois comme mon code : je peux toujours m'améliorer et je le ferai !",
             `De plus, j'aime beaucoup travailler en équipe et partager des idées.
-
             D'après mon expérience, apprendre des points de vue des autres est un très bon moyen d'améliorer les compétences sociales et techniques, plus rapidement et mieux !`,
           ],
         },
@@ -219,9 +217,9 @@ export const Content = {
           title: "Expériences",
           content: [
             {
-              title: "Développeur Fullstack",
-              place: "RCR Editions @ Montpellier",
-              date: "Avril-Juin 2021",
+              title: "Développeur Frontend Junior",
+              place: "DATASOLUTION @ Paris (Télétravail)",
+              date: "Octobre 2021 - Aujourd'hui",
             },
             {
               title: "Agent de Production",
